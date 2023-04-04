@@ -1,0 +1,69 @@
+CPU Max is: 1
+RAM Max is: 2
+HDD Max is: 5
+
+============================
+Add values 1-9, max cap 8 in sys
+============================
+Access: 1 MISS LRU->[br 1]<-MRU Replace:- [br Hits:0 Misses:1]
+Access: 2 MISS LRU->[br 2]<-MRU Replace:1 [br Hits:0 Misses:2]
+Access: 1 MISS LRU->   [br 1]<-MRU Replace:- [br Hits:0 Misses:3]
+Access: 3 MISS LRU->[br 3]<-MRU Replace:2 [br Hits:0 Misses:4]
+Access: 2 MISS LRU->[br 1, 2]<-MRU Replace:- [br Hits:0 Misses:5]
+Access: 4 MISS LRU->[br 4]<-MRU Replace:3 [br Hits:0 Misses:6]
+Access: 3 MISS LRU->[br 2, 3]<-MRU Replace:1 [br Hits:0 Misses:7]
+Access: 1 MISS LRU->            [br 1]<-MRU Replace:- [br Hits:0 Misses:8]
+Access: 5 MISS LRU->[br 5]<-MRU Replace:4 [br Hits:0 Misses:9]
+Access: 4 MISS LRU->[br 3, 4]<-MRU Replace:2 [br Hits:0 Misses:10]
+Access: 2 MISS LRU->         [br 1, 2]<-MRU Replace:- [br Hits:0 Misses:11]
+Access: 6 MISS LRU->[br 6]<-MRU Replace:5 [br Hits:0 Misses:12]
+Access: 5 MISS LRU->[br 4, 5]<-MRU Replace:3 [br Hits:0 Misses:13]
+Access: 3 MISS LRU->      [br 1, 2, 3]<-MRU Replace:- [br Hits:0 Misses:14]
+Access: 7 MISS LRU->[br 7]<-MRU Replace:6 [br Hits:0 Misses:15]
+Access: 6 MISS LRU->[br 5, 6]<-MRU Replace:4 [br Hits:0 Misses:16]
+Access: 4 MISS LRU->   [br 1, 2, 3, 4]<-MRU Replace:- [br Hits:0 Misses:17]
+Access: 8 MISS LRU->[br 8]<-MRU Replace:7 [br Hits:0 Misses:18]
+Access: 7 MISS LRU->[br 6, 7]<-MRU Replace:5 [br Hits:0 Misses:19]
+Access: 5 MISS LRU->[br 1, 2, 3, 4, 5]<-MRU Replace:- [br Hits:0 Misses:20]
+Access: 9 MISS LRU->[br 9]<-MRU Replace:8 [br Hits:0 Misses:21]
+Access: 8 MISS LRU->[br 7, 8]<-MRU Replace:6 [br Hits:0 Misses:22]
+Access: 6 MISS LRU->[br 2, 3, 4, 5, 6]<-MRU Replace:1 [br Hits:0 Misses:23]
+LevelNode{LevelName='CPU', memory=[9]}
+LevelNode{LevelName='Ram', memory=[7, 8]}
+LevelNode{LevelName='HDD', memory=[2, 3, 4, 5, 6]}
+
+============================
+find data(1) from CPU: is null? true
+============================
+LevelNode{LevelName='CPU', memory=[9]}
+LevelNode{LevelName='Ram', memory=[7, 8]}
+LevelNode{LevelName='HDD', memory=[2, 3, 4, 5, 6]}
+
+============================
+Find Data 3 at cpu
+============================
+Access: 3 MISS LRU->[br 3]<-MRU Replace:9 [br Hits:0 Misses:24]
+Access: 9 MISS LRU->[br 8, 9]<-MRU Replace:7 [br Hits:0 Misses:25]
+Access: 7 MISS LRU->[br 2, 4, 5, 6, 7]<-MRU Replace:1 [br Hits:0 Misses:26]
+LevelNode{LevelName='CPU', memory=[3]}
+LevelNode{LevelName='Ram', memory=[8, 9]}
+LevelNode{LevelName='HDD', memory=[2, 4, 5, 6, 7]}
+
+============================
+Find Data 2 at cpu
+============================
+Access: 2 MISS LRU->[br 2]<-MRU Replace:3 [br Hits:0 Misses:27]
+Access: 3 MISS LRU->[br 9, 3]<-MRU Replace:8 [br Hits:0 Misses:28]
+Access: 8 MISS LRU->[br 4, 5, 6, 7, 8]<-MRU Replace:1 [br Hits:0 Misses:29]
+LevelNode{LevelName='CPU', memory=[2]}
+LevelNode{LevelName='Ram', memory=[9, 3]}
+LevelNode{LevelName='HDD', memory=[4, 5, 6, 7, 8]}
+
+============================
+Find Data 4 at ram
+============================
+Access: 4 MISS LRU->[br 3, 4]<-MRU Replace:9 [br Hits:0 Misses:30]
+Access: 9 MISS LRU->[br 5, 6, 7, 8, 9]<-MRU Replace:1 [br Hits:0 Misses:31]
+LevelNode{LevelName='CPU', memory=[2]}
+LevelNode{LevelName='Ram', memory=[3, 4]}
+LevelNode{LevelName='HDD', memory=[5, 6, 7, 8, 9]}
